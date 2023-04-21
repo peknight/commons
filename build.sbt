@@ -1,0 +1,35 @@
+ThisBuild / version := "0.1.0-SNAPSHOT"
+
+ThisBuild / scalaVersion := "3.2.1"
+
+ThisBuild / organization := "com.peknight"
+
+lazy val commonSettings = Seq(
+  scalacOptions ++= Seq(
+    "-feature",
+    "-deprecation",
+    "-unchecked",
+    "-Xfatal-warnings",
+    "-language:strictEquality",
+    "-Xmax-inlines:64"
+  ),
+)
+
+lazy val commons = (project in file("."))
+  .aggregate(
+    commonsString.jvm,
+    commonsString.js,
+  )
+  .enablePlugins(JavaAppPackaging)
+  .settings(commonSettings)
+  .settings(
+    name := "commons",
+  )
+
+lazy val commonsString = (crossProject(JSPlatform, JVMPlatform) in file("commons-string"))
+  .settings(commonSettings)
+  .settings(
+    name := "commons-string",
+    libraryDependencies ++= Seq(
+    )
+  )
