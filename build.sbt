@@ -20,7 +20,6 @@ lazy val commons = (project in file("."))
     commonsString.jvm,
     commonsString.js,
   )
-  .enablePlugins(JavaAppPackaging)
   .settings(commonSettings)
   .settings(
     name := "commons",
