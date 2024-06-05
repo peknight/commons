@@ -39,7 +39,7 @@ object StringCaseOps:
   end split
 
   // 单词格式
-  private[this] enum WordCase derives CanEqual:
+  private enum WordCase derives CanEqual:
     // 空
     case Empty
     // 大写字符（只有一个大写字母）
@@ -57,7 +57,7 @@ object StringCaseOps:
   end WordCase
 
   // 字符类型
-  private[this] enum CharType derives CanEqual:
+  private enum CharType derives CanEqual:
     // 大写字符
     case Upper
     // 小写字符
@@ -70,7 +70,7 @@ object StringCaseOps:
     case Other
   end CharType
 
-  private[this] def getCharType(ch: Char): CharType =
+  private def getCharType(ch: Char): CharType =
     if ch.isUpper then CharType.Upper
     else if ch.isLower then CharType.Lower
     else if ch.isDigit then CharType.Digit
@@ -78,7 +78,7 @@ object StringCaseOps:
     else CharType.Other
 
   // 分词处理过程中的操作
-  private[this] enum Operation derives CanEqual:
+  private enum Operation derives CanEqual:
     // 忽略
     case Ignore
     // 向当前单词追加字符
@@ -92,7 +92,7 @@ object StringCaseOps:
   end Operation
 
   // 遍历字符串过程中的操作
-  private[this] def operation(wordCase: WordCase, charType: CharType): (WordCase, Operation) =
+  private def operation(wordCase: WordCase, charType: CharType): (WordCase, Operation) =
     (wordCase, charType) match
       case (WordCase.Empty, CharType.Upper) => (WordCase.CapitalChar, Operation.Append)
       case (WordCase.Empty, CharType.Lower) => (WordCase.Lower, Operation.Append)
