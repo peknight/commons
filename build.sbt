@@ -19,6 +19,8 @@ lazy val commons = (project in file("."))
   .aggregate(
     commonsString.jvm,
     commonsString.js,
+    commonsBigInt.jvm,
+    commonsBigInt.js,
   )
   .settings(commonSettings)
   .settings(
@@ -32,3 +34,14 @@ lazy val commonsString = (crossProject(JSPlatform, JVMPlatform) in file("commons
     libraryDependencies ++= Seq(
     )
   )
+
+lazy val commonsBigInt = (crossProject(JSPlatform, JVMPlatform) in file("commons-bigint"))
+  .settings(commonSettings)
+  .settings(
+    name := "commons-bigint",
+    libraryDependencies ++= Seq(
+      "org.scodec" %%% "scodec-bits" % scodecVersion,
+    )
+  )
+
+val scodecVersion = "1.2.0"
