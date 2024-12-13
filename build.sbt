@@ -19,6 +19,8 @@ lazy val commons = (project in file("."))
   .aggregate(
     commonsString.jvm,
     commonsString.js,
+    commonsTime.jvm,
+    commonsTime.js
   )
   .settings(commonSettings)
   .settings(
@@ -29,6 +31,14 @@ lazy val commonsString = (crossProject(JSPlatform, JVMPlatform) in file("commons
   .settings(commonSettings)
   .settings(
     name := "commons-string",
+    libraryDependencies ++= Seq(
+    )
+  )
+
+lazy val commonsTime = (crossProject(JSPlatform, JVMPlatform) in file("commons-time"))
+  .settings(commonSettings)
+  .settings(
+    name := "commons-time",
     libraryDependencies ++= Seq(
     )
   )
