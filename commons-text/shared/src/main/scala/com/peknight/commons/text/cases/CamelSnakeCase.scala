@@ -1,4 +1,4 @@
-package com.peknight.commons.string.cases
+package com.peknight.commons.text.cases
 
 object CamelSnakeCase extends StringCase:
   def join(values: Seq[String]): String =

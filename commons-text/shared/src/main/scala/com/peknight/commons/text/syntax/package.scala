@@ -1,4 +1,4 @@
-package com.peknight.commons.string
+package com.peknight.commons.text
 
 package object syntax:
   object all extends StringCaseSyntax with EscapeSyntax

@@ -1,6 +1,6 @@
-package com.peknight.commons.string.syntax
+package com.peknight.commons.text.syntax
 
-import com.peknight.commons.string.escape.EscapeOps
+import com.peknight.commons.text.escape.EscapeOps
 
 trait EscapeSyntax:
   extension (value: String)

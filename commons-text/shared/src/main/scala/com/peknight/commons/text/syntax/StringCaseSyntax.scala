@@ -1,6 +1,6 @@
-package com.peknight.commons.string.syntax
+package com.peknight.commons.text.syntax
 
-import com.peknight.commons.string.cases.{StringCase, StringCaseOps}
+import com.peknight.commons.text.cases.{StringCase, StringCaseOps}
 
 trait StringCaseSyntax:
   extension (value: String)

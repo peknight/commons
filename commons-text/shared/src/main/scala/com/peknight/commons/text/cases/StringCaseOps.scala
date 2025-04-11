@@ -1,4 +1,4 @@
-package com.peknight.commons.string.cases
+package com.peknight.commons.text.cases
 
 import scala.collection.mutable.ListBuffer
 

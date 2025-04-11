@@ -1,4 +1,4 @@
-package com.peknight.commons.string.escape
+package com.peknight.commons.text.escape
 
 object EscapeOps:
   def escape(input: String, charsToEscape: Set[Char], escapeChar: Char = '\\'): String =
