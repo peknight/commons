@@ -1,9 +1,8 @@
-package com.peknight.commons.text.cases
+package com.peknight.commons.text
 
 import scala.collection.mutable.ListBuffer
 
-object StringCaseOps:
-
+package object cases:
   def capitalize(value: String): String =
     if value.isEmpty then ""
     else s"${value.head.toUpper}${value.tail.toLowerCase}"
@@ -116,4 +115,4 @@ object StringCaseOps:
       case (_, CharType.Letter) => (WordCase.Letter, Operation.FlushAndNew)
       case (_, CharType.Other) => (WordCase.Empty, Operation.Flush)
   end operation
-end StringCaseOps
+end cases
