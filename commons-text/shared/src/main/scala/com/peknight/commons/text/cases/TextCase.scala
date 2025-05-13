@@ -1,5 +1,5 @@
 package com.peknight.commons.text.cases
 
-trait StringCase:
+trait TextCase:
   def join(values: Seq[String]): String
-end StringCase
+end TextCase

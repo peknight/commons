@@ -7,14 +7,14 @@ package object cases:
     if value.isEmpty then ""
     else s"${value.head.toUpper}${value.tail.toLowerCase}"
 
-  def to(value: String, stringCase: StringCase): String =
+  def to(value: String, textCase: TextCase): String =
     if value.nonEmpty then
       val values = split(value)
       if values.isEmpty then ""
-      else stringCase.join(values)
+      else textCase.join(values)
     else value
 
-  def split(value: String): Seq[String] =
+  def split(value: String): List[String] =
     val buf = ListBuffer.empty[String]
     val (_, lastChars) = value.foldLeft[(WordCase, ListBuffer[Char])]((WordCase.Empty, ListBuffer.empty[Char])) {
       case ((wordCase, chars), ch) =>
@@ -86,7 +86,7 @@ package object cases:
     case FlushAndNew
     // 存储当前单词
     case Flush
-    // 存在除最后一个字符外的当前单词，并以最后一个字符开头创建新单词
+    // 存储除最后一个字符外的当前单词，并以最后一个字符开头创建新单词
     case FlushInitAndNew
   end Operation
 
