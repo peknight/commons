@@ -4,8 +4,10 @@ lazy val commons = (project in file("."))
   .aggregate(
     commonsText.jvm,
     commonsText.js,
+    commonsText.native,
     commonsTime.jvm,
-    commonsTime.js
+    commonsTime.js,
+    commonsText.native,
   )
   .settings(
     name := "commons",
