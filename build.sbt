@@ -7,7 +7,7 @@ lazy val commons = (project in file("."))
     commonsText.native,
     commonsTime.jvm,
     commonsTime.js,
-    commonsText.native,
+    commonsTime.native,
   )
   .settings(
     name := "commons",
