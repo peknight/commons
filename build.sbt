@@ -1,18 +1,20 @@
+import com.peknight.build.gav.scala.scala3
+
 com.peknight.build.sbt.commonSettings
 
 lazy val commons = (project in file("."))
   .settings(name := "commons")
-  .aggregate(
-    commonsText.jvm,
-    commonsText.js,
-    commonsText.native,
-    commonsTime.jvm,
-    commonsTime.js,
-    commonsTime.native,
-  )
+  .aggregate(commonsText.projectRefs *)
+  .aggregate(commonsTime.projectRefs *)
 
-lazy val commonsText = (crossProject(JVMPlatform, JSPlatform, NativePlatform) in file("commons-text"))
+lazy val commonsText = (projectMatrix in file("commons-text"))
   .settings(name := "commons-text")
+  .jvmPlatform(scalaVersions = Seq(scala3.version))
+  .jsPlatform(scalaVersions = Seq(scala3.version))
+  .nativePlatform(scalaVersions = Seq(scala3.version))
 
-lazy val commonsTime = (crossProject(JVMPlatform, JSPlatform, NativePlatform) in file("commons-time"))
+lazy val commonsTime = (projectMatrix in file("commons-time"))
   .settings(name := "commons-time")
+  .jvmPlatform(scalaVersions = Seq(scala3.version))
+  .jsPlatform(scalaVersions = Seq(scala3.version))
+  .nativePlatform(scalaVersions = Seq(scala3.version))
